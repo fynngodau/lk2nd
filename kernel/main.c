@@ -137,6 +137,11 @@ static int bootstrap2(void *arg)
 	dprintf(SPEW, "initializing platform\n");
 	platform_init();
 
+#if WITH_LK2ND
+	dprintf(SPEW, "initializing lk2nd\n");
+	lk2nd_init();
+#endif
+
 	// initialize the target
 	dprintf(SPEW, "initializing target\n");
 	target_init();
@@ -157,6 +162,11 @@ void bootstrap_nandwrite(void)
 	// initialize the rest of the platform
 	dprintf(SPEW, "initializing platform\n");
 	platform_init();
+
+#if WITH_LK2ND
+	dprintf(SPEW, "initializing lk2nd\n");
+	lk2nd_init();
+#endif
 
 	// initialize the target
 	dprintf(SPEW, "initializing target\n");
